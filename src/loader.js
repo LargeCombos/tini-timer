@@ -1,5 +1,5 @@
 import './styles.css';
-import {getCurrentTime, getCurrentDate} from './timer.js';
+import {getCurrentTime, getCurrentDate, timer, tracksTime} from './timer.js';
 
 /* This module loads everything for the first time. */
 
@@ -29,12 +29,12 @@ export default function loader() {
     
     const currentDate = document.createElement('div');
     currentDate.setAttribute('id', 'current-date');
-    currentDate.textContent = getCurrentDate();
+    currentDate.textContent = 'Todays current date is: ' + getCurrentDate();
     dateAndTimeDiv.appendChild(currentDate);
 
     const liveTime = document.createElement('div');
     liveTime.setAttribute('id', 'live-time');
-    liveTime.textContent = getCurrentTime();
+    liveTime.textContent = 'The current time is: ' + getCurrentTime();
     dateAndTimeDiv.appendChild(liveTime);
 
     const timerDiv = document.createElement('div');
@@ -47,9 +47,23 @@ export default function loader() {
 
     const startBTN = document.createElement('button');
     startBTN.setAttribute('id', 'start-BTN');
+    startBTN.classList.add('btn');
+    startBTN.textContent = 'Start';
     buttonDiv.appendChild(startBTN);
 
-    const stopBTN = document.createElement('div');
+    const stopBTN = document.createElement('button');
     stopBTN.setAttribute('id', 'stop-BTN');
+    stopBTN.classList.add('btn');
+    stopBTN.textContent = 'Stop';
     buttonDiv.appendChild(stopBTN);
+
+    const eventHandlers = (() => {
+        const startTimer = document.querySelector('#start-BTN');
+        startTimer.addEventListener('onclick', tracksTime());
+
+        const stopTimer = document.querySelector('#stop-BTN');
+        stopTimer.addEventListener('onclick', () => {
+            timer.active = false;
+        });
+    })();
 };

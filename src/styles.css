@@ -20,4 +20,50 @@ body {
     background-color: #82A6B1;
     height: 80vh;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+#date-and-time-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50vw;
+    margin: 2rem;
+}
+
+#timer {
+    border-radius: 40px;
+    height: 25vh;
+    width: 50vw;
+    margin: 2rem;
+    background-color: #353535;
+}
+
+#button-div {
+    height: auto;
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2rem;
+}
+
+.btn {
+    padding: 1.5rem 3rem;
+    border: #7A918D solid 0.3rem;
+    border-radius: 20px;
+    color: #fff;
+}
+
+#start-BTN {
+    background-color: #64F58D;
+}
+
+#stop-BTN {
+    background-color: #EF233C;
 }
