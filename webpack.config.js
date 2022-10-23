@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     index: './src/index.js',
     loader: './src/loader.js',
+    timer: './timer.js',
   },
   devtool: 'inline-source-map',
   devServer: {
